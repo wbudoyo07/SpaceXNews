@@ -1,1 +1,12 @@
-<h1>test</h1>
+
+<div id = "main-container">
+    <div id = "articles">
+        {{#each dbArticle}}
+        <a href="https://www.spacex.com/{{this.link}}">{{this.title}}</a>
+        <br>
+        {{/each}}
+    </div>
+    <div id = "notes"></div>
+   
+</div>
+  

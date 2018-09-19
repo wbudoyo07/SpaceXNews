@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     {{!-- no need /public/ because  app.use(express.static("public")) from server js--}}
     <link rel="stylesheet" href="/css/{{css}}">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/javascript/{{javascript}}"></script>
     <title>{{titlePage}}</title>
 </head>
 <body>
-    {{{body}}}
-</body>
+<header>
+       <button type="button" class="btn btn-primary scrape-btn">Primary</button>
 
-{{!-- no need /public/ because  app.use(express.static("public")) from server js--}}
-<script src="/javascript/{{javascript}}"></script>
+</header>
+
+    {{{body}}}
+
+</body>
 </html>

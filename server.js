@@ -4,11 +4,6 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-// scrapping tools
-const cheerio = require("cheerio");
-
-// require all models
-const db = require("./models");
 
 const PORT = 8080;
 
