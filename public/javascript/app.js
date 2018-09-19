@@ -7,7 +7,17 @@ $(document).ready(function() {
             url: "/scrape"
         }).then(function(data) {
             console.log(data);
-            window.location.reload();
+            window.location.replace("/");
+        });
+    });
+
+    $(".delete-btn").click(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            url: "/api/articles/"
+        }).then(function(data) {
+            window.location.replace("/")
         });
     });
 }) ;

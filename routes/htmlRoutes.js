@@ -27,6 +27,7 @@ module.exports = function (app) {
                 result.title = $(this).text();
                 result.link = $(this).children().attr("href");
                 
+                console.log("not in data base" +result);
                 // push the result object to Article collection
                 db.Article.create(result)
                 .then(function(dbArticle) {
