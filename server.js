@@ -7,7 +7,7 @@ const logger = require("morgan");
 
 const PORT = 8080;
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = 'mongodb://heroku_2dbg414q:crLNtRWcJ62AU6Z@ds163842.mlab.com:63842/heroku_2dbg414q'
+var MONGODB_URI = "mongodb://heroku_2dbg414q:ssldsojn5ko436a99njqnd9k9o@ds163842.mlab.com:63842/heroku_2dbg414q"||"mongodb://localhost/spaceX";
 // "mongodb://localhost/spaceX";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
