@@ -5,17 +5,31 @@ const request = require("request");
 
 module.exports = function (app) {
 
-    // scrape the data  when we open a home page 
+    // The home page
     app.get("/", function(req, res) {
-        db.Article.find({}).then(function(dbArticle) {
+        // render all the scrape datas
+        db.Article.find({saved:false}).then(function(database) {
             res.render("home", {
                 titlePage: "Home",
                 javascript: "app.js",
                 css: "style.css",
-                dbArticle: dbArticle
+                dbArticle: database
             });
         });
     });
+
+    // The saved page only render the saved articles
+    app.get("/saved", function(req, res) {
+        db.Article.find({saved:true})
+        .populate("note")
+        .then(function(database) {
+            res.render("saved-articles", {
+                titlePage: "Saved-Articles",
+                dbArticle :database
+            });
+        });
+    });
+
     app.get("/scrape", function(req,res) {
         request("https://www.spacex.com/news",function(error,response, html) {
     
