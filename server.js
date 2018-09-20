@@ -13,7 +13,15 @@ var MONGODB_URI = 'mongodb://heroku_dm9tgqfs:NGVg8V4kUpDUBpY.mlab.com:11063/hero
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+})
+.then(connection => {
+  console.log('Connected to MongoDB');
+})
+.catch(error => {
+console.log(error.message);
+});
 
 // Initialize Express
 const app = express();
