@@ -20,13 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Handlebars
-app.engine(
-    "handlebars",
-    exphbs({
-      defaultLayout: "main"
-    })
-  );
-  app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -34,6 +29,14 @@ require("./routes/htmlRoutes")(app);
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/spaceX", { useNewUrlParser: true });
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI)
 
 // Start the server
 app.listen(PORT, function() {
