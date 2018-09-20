@@ -12,6 +12,17 @@ $(document).ready(function() {
         });
     });
 
+    // delete all collections/datas
+    $(".delete-btn").click(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            url: "/api/articles/"
+        }).then(function(data) {
+            window.location.replace("/")
+        });
+    });
+
     $(".saved-btn").click(function(event) {
         event.preventDefault();
         let thisId = $(this).attr("data-id");
@@ -24,14 +35,4 @@ $(document).ready(function() {
         });
     });
 
-    // delete all collections/datas
-    $(".delete-btn").click(function(event) {
-        event.preventDefault();
-        $.ajax({
-            type: "DELETE",
-            url: "/api/articles/"
-        }).then(function(data) {
-            window.location.replace("/")
-        });
-    });
 }) ;

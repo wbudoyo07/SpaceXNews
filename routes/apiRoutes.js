@@ -41,16 +41,12 @@ module.exports = function (app) {
 app.post("/api/articles/saved/:id", function(req, res) {
     // find the article id  and update it saved to true so it will render to saved page
     db.Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": true})
-    // Execute the above query
-    .exec(function(err, doc) {
-      // Log any errors
-      if (err) {
-        console.log(err);
-      }
-      else {
-        // Or send the document to the browser
-        res.send(doc);
-      }
+
+    .then(function(dbSavedArticle) {
+        res.json(dbArticle);
+    })
+    .catch(function(err) {
+        res.json(err);
     });
 });
 

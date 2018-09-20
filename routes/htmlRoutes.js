@@ -11,8 +11,8 @@ module.exports = function (app) {
         db.Article.find({saved:false}).then(function(database) {
             res.render("home", {
                 titlePage: "Home",
-                javascript: "app.js",
-                css: "style.css",
+                javascript: "home.js",
+                css: "home.css",
                 dbArticle: database
             });
         });
@@ -25,6 +25,8 @@ module.exports = function (app) {
         .then(function(database) {
             res.render("saved-articles", {
                 titlePage: "Saved-Articles",
+                javascript: "savedPage.js",
+                css: "savedPage.css",
                 dbArticle :database
             });
         });
@@ -35,11 +37,13 @@ module.exports = function (app) {
     
             const $ =  cheerio.load(html);
         
-            $("h2.title").each(function(i, element) {
+            $(".views-row").each(function(i, element) {
                 let result = {};
         
-                result.title = $(this).text();
-                result.link = $(this).children().attr("href");
+                result.title = $(this).find($(".title")).text();
+                result.summary= $(this).find($(".summary")).text();
+                result.img = $(this).find($(".image")).children().children().attr("src");
+                result.link = "https://www.spacex.com"+$(this).find($(".title")).children().attr("href");
                 
                 console.log("not in data base" +result);
                 // push the result object to Article collection
