@@ -11,11 +11,11 @@
                     <a href={{this.link}} target="_blank">{{this.link}}</a>
                     <br><br>
                     <button type="button" class="btn btn-success show-modal" data-id={{this._id}} data-toggle="modal" data-target="#Modal-{{this._id}}">Articles Notes</button>
-                    <button type="button" class="btn btn-success delete-articles" data-id={{this._id}}>Delete From saved</button>
+                    <button type="button" class="btn btn-danger delete-articles" data-id={{this._id}}>Delete Articles</button>
                 </div>
             </div>
-            <!-- Modal -->
-            <div class="modal fade" id="Modal-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <!-- Modal -->
+            <div class="modal fade" id="Modal-{{this._id}}" data-id= {{this._id}} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -25,16 +25,23 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    ...
+                      <span id="modal-notes">{{this.note.body}}</span>
+                    <form action="">
+                      <div class="form-group">
+                        <label for="notes-text-{{this._id}}"></label>
+                        <textarea class="form-control" id="notes-text-{{this._id}}" rows="3"></textarea>
+                      </div>
+                    </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary save-notes" data-id= {{this._id}}>Save Notes</button>
                   </div>
                 </div>
               </div>
             </div>
             {{/each}}
+
     </div>
 </div>
 

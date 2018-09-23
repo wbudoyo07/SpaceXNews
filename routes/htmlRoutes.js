@@ -44,8 +44,7 @@ module.exports = function (app) {
                 result.summary= $(this).find($(".summary")).text();
                 result.img = $(this).find($(".image")).children().children().attr("src");
                 result.link = "https://www.spacex.com"+$(this).find($(".title")).children().attr("href");
-                
-                console.log("not in data base" +result);
+            
                 // push the result object to Article collection
                 db.Article.create(result)
                 .then(function(dbArticle) {

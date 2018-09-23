@@ -2,3 +2,10 @@
     border: 1px solid black;
     margin:10px;
 }
+
+.panel-heading h4 {
+    text-align:center;
+}
+.panel-body{
+    margin:10px;
+}
