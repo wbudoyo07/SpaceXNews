@@ -1,9 +1,4 @@
 $(document).ready(function() {
-    $(".merahPutih").click(function(event){
-        alert("Test");
-        let text = $("#notes-text").val();
-        console.log(text);
-    });
 
     $(".show-modal").click(function(event) {
         event.preventDefault();
@@ -33,7 +28,7 @@ $(document).ready(function() {
         });
     });
 
-    // delete all collections/datas
+    // delete one articles
     $(".delete-articles").click(function(event) {
         event.preventDefault();
         let thisId = $(this).attr("data-id");
