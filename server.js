@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 // If deployed, use the deployed database. Otherwise use the local spaceX database
 // var MONGODB_URI = process.env.MONGODB_URI||"mongodb://localhost/spaceX";
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
