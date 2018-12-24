@@ -1,12 +1,17 @@
-body{
+html,body{
     background-image: url(https://images8.alphacoders.com/374/374852.jpg);
     background-size:cover;
+    /* background-repeat: no-repeat; */
+    margin:0;
+    height:100%;
 }
 .navbar {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    background:transparent;
+ 
 }
-
+.navbar-brand {
+    color:blue;
+}
 .panel-default {
     border: 1px solid black;
     margin:10px;
