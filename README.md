@@ -1,6 +1,6 @@
 # SpaceXScraper
 
-Full Stack Web application utilizing the MVC pattern for spaceX articles. Scraping the data from https://www.spacex.com/news.It can saves articles and a note. 
+Full Stack Web application utilizing the MVC pattern for spaceX articles. Scraping the data from https://www.spacex.com/news. It can saves articles and a note. 
 
 ![](spaceXreadMe.gif)
 
